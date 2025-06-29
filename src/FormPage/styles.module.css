@@ -1,0 +1,78 @@
+.form_page {
+  width: 800px;
+  margin: 50px auto;
+}
+.f_title {
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.f_input {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.f_input label {
+  display: inline-block;
+  width: 150px;
+}
+
+.f_input_upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.f_input input, .f_input textarea{
+  display: inline-block;
+  flex-wrap: wrap;
+  width: 600px;
+  padding: 10px 0;
+  border: 1px solid rgb(209 213 219);
+  border-radius: 5px;
+}
+
+.f_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.f_btn button {
+  border-radius: 5px;
+  padding: 10px ;
+  margin: 0 20px;
+  font-weight: 600;
+}
+
+.f_btn .f_send {
+  background-color: #333;
+  color: #fff;
+}
+
+
+.f_note_error {
+  margin-top: 5px;
+  margin-left: 160px;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  color: rgb(185 28 28);  
+}
+
+.f_send,
+.f_clear {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.f_clear {
+  border: 1px solid rgb(229 231 235);
+}

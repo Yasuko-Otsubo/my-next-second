@@ -1,0 +1,20 @@
+.header {
+  background-color: #333;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.h_ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+}
+
+
+.h_link {
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}

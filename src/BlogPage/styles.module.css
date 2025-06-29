@@ -1,0 +1,46 @@
+.blogpage {
+  width: 800px;
+  margin: 50px auto;
+}
+
+.blog_sub {
+  max-width: 800px;
+}
+
+.b_time {
+  font-size: 15px;
+  color: #888;
+}
+.b_category {
+  display: flex;
+}
+
+.b_cate_area {
+  color: #06c;
+  border: 1px solid #06c;
+  padding: 5px 10px;
+  margin: 0 5px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.b_img {
+  margin-bottom: 5px;
+}
+
+.b_sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+  margin: 0 auto;
+}
+
+.b_p {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.h2 {
+  font-weight: 200;
+}
