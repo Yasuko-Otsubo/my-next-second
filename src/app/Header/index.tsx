@@ -1,5 +1,7 @@
+"use client"
+
 //import React from "react";
-import { Link } from "react-router-dom";
+import  Link from "next/link";
 import styles from './styles.module.css';
 
 const Header: React.FC = () => {
@@ -8,10 +10,10 @@ const Header: React.FC = () => {
       <nav>
         <ul className={styles.h_ul}>
           <li>
-            <Link className={styles.h_link} to="/">Blog</Link>
+            <Link className={styles.h_link} href="/">Blog</Link>
           </li>
           <li>
-            <Link className={styles.h_link} to="/form_page">お問い合わせ</Link>
+            <Link className={styles.h_link} href="/form_page">お問い合わせ</Link>
           </li>
         </ul>
       </nav>

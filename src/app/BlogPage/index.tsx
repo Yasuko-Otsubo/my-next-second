@@ -2,7 +2,7 @@
 
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import styles from '../styles.module.css';
+import styles from './styles.module.css';
 import Image from 'next/image';
 
 //APIレスポンスがどのようなデータ構造を持つかを定義

@@ -1,5 +1,7 @@
+"use client"
+
 //import { posts } from '../data/posts';
-import { Link } from 'react-router-dom';
+import Link from "next/link";
 import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 
@@ -63,7 +65,7 @@ useEffect(() => {
     <div className={styles.h_main}>
       {posts.map((post) => (
         <article className={styles.h_sec} key={post.id}>
-          <Link className={styles.h_link} to={`/posts/${post.id}`}>
+          <Link className={styles.h_link} href={`/posts/${post.id}`}>
           <div className={styles.h_sec_upper}>
             <time className={styles.h_time}>{new Date(post.createdAt).toLocaleDateString()}</time>
             <div className={styles.h_category}>
