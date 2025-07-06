@@ -6,7 +6,7 @@
 
 import dynamic from 'next/dynamic';
 
-const Header = dynamic(() => import('./Header'), { ssr: false });
+const Header = dynamic(() => import('./_components/Header'), { ssr: false });
 const Home = dynamic(() => import('./Home'), { ssr: false });
 
 export default function Page() {
