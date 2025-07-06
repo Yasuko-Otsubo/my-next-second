@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import { Category } from "@/types/Category";
 import { useEffect } from "react";
-import { useSupabaseSession } from "@/app/_hooks/useSupabasesession";
+import { useSupabaseSession } from "@/app/_hooks/useSupabaseSession";
 
 interface Props {
   selectedCategories: Category[];

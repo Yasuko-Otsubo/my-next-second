@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CategoryForm } from "../_components/CategoryForm";
-import { useSupabaseSession } from "@/app/_hooks/useSupabasesession";
+import { useSupabaseSession } from "@/app/_hooks/useSupabaseSession";
 
 export default function Page() {
   const [name, setName] = useState("");

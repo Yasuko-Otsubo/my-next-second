@@ -1,6 +1,6 @@
 import { Category } from '@/types/Category'
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import { CategoriesSelect } from './CategoriesSelect'
+import { CategoriesSelect } from './CategoriseSelect'
 import { v4 as uuidv4 } from 'uuid' // 固有のIDを生成するライブラリです。`npm install uuid @types/uuid` でインストールしてください。
 import { supabase } from '@/utils/supabase'
 import Image from 'next/image'

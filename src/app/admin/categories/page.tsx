@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Category } from "@/types/Category";
-import { useSupabaseSession } from "@/app/_hooks/useSupabasesession";
+import { useSupabaseSession } from "@/app/_hooks/useSupabaseSession";
 
 export default function Page() {
   const [categories, setCategories] = useState<Category[]>([]);

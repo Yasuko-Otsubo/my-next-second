@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { PostForm } from "../_components/PostForm";
 import { Category } from "@/types/Category";
-import { useSupabaseSession } from "@/app/_hooks/useSupabasesession";
-import { Post } from "@/types/Post";
+import { useSupabaseSession } from "@/app/_hooks/useSupabaseSession";
+import { Post } from "@/types/post";
 
 export default function Page() {
   const [title, setTitle] = useState("");

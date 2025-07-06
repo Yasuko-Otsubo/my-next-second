@@ -1,79 +1,52 @@
-"use client";
+import React from 'react'
 
-import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
-import { CategoryForm } from "../_components/CategoryForm";
-import { useSupabaseSession } from "@/app/_hooks/useSupabasesession";
+interface Props {
+  mode: 'new' | 'edit'
+  name: string
+  setName: (title: string) => void
+  onSubmit: (e: React.FormEvent) => void
+  onDelete?: () => void
+}
 
-export default function Page() {
-  const [name, setName] = useState("");
-  const { id } = useParams();
-  const router = useRouter();
-  const { token } = useSupabaseSession();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    // フォームのデフォルトの動作をキャンセルします。
-    e.preventDefault();
-
-    // カテゴリーを作成します。
-    await fetch(`/api/admin/categories/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token!,
-      },
-      body: JSON.stringify({ name }),
-    });
-
-    alert("カテゴリーを更新しました。");
-  };
-
-  const handleDeletePost = async () => {
-    if (!confirm("カテゴリーを削除しますか？")) return;
-
-    await fetch(`/api/admin/categories/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token!,
-      },
-    });
-
-    alert("カテゴリーを削除しました。");
-
-    router.push("/admin/categories");
-  };
-
-  useEffect(() => {
-    if (!token) return;
-
-    const fetcher = async () => {
-      const res = await fetch(`/api/admin/categories/${id}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-      });
-      const { category } = await res.json();
-      setName(category.name);
-    };
-
-    fetcher();
-  }, [id, token]);
-
+export const CategoryForm: React.FC<Props> = ({
+  mode,
+  name,
+  setName,
+  onSubmit,
+  onDelete,
+}) => {
   return (
-    <div className="container mx-auto px-4">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold mb-4">カテゴリー編集</h1>
+    <form onSubmit={onSubmit} className="space-y-4">
+      <div>
+        <label
+          htmlFor="title"
+          className="block text-sm font-medium text-gray-700"
+        >
+          カテゴリー名
+        </label>
+        <input
+          type="text"
+          id="title"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="mt-1 block w-full rounded-md border border-gray-200 p-3"
+        />
       </div>
-
-      <CategoryForm
-        mode="edit"
-        name={name}
-        setName={setName}
-        onSubmit={handleSubmit}
-        onDelete={handleDeletePost}
-      />
-    </div>
-  );
+      <button
+        type="submit"
+        className="py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >
+        {mode === 'new' ? '作成' : '更新'}
+      </button>
+      {mode === 'edit' && (
+        <button
+          type="button"
+          className="py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 ml-2"
+          onClick={onDelete}
+        >
+          削除
+        </button>
+      )}
+    </form>
+  )
 }
