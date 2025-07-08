@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { useSupabaseSession } from '@/app/_hooks/useSupabasesession'
-import { Post } from '@/types/Post'
+import { useSupabaseSession } from '@/app/_hooks/useSupabaseSession'
+import { Post } from '@/types/post'
 
 export default function Page() {
   const [posts, setPosts] = useState<Post[]>([])
