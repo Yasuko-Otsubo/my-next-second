@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styles from './styles.module.css'
 
 
-const FormPage: React.FC = () => {
+const PostForm: React.FC = () => {
 
   type ContactForm = {
     name: string;
@@ -188,4 +188,4 @@ const FormPage: React.FC = () => {
   );
 }
 
-export default FormPage;
+export default PostForm;
