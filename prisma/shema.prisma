@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Post {
+  id                Int            @id @default(autoincrement())
+  title             String
+  content           String
+  thumbnailImageKey String
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  postCategories    PostCategory[]
+}
+
+model Category {
+  id        Int            @id @default(autoincrement())
+  name      String
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  posts     PostCategory[]
+}
+
+model PostCategory {
+  id         Int      @id @default(autoincrement())
+  postId     Int
+  categoryId Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+}
