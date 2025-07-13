@@ -1,6 +1,6 @@
 'use client'
 
-import { supabase } from '@/utils/supabase'
+import { supabase } from '@/utils/supabase' // 前の工程で作成したファイル
 import { useState } from 'react'
 
 export default function Page() {
