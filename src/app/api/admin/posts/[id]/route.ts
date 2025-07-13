@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Category, PrismaClient } from '@prisma/client'
+import { /*Category, */PrismaClient } from '@prisma/client'
 import { getCurrentUser } from '@/utils/supabase'
 
 const prisma = new PrismaClient()
@@ -8,7 +8,7 @@ export const GET = async (
   request: NextRequest,
   { params }: { params: { id: string } },
 ) => {
-  const { currentUser, error } = await getCurrentUser(request)
+  const { /*currentUser,*/ error } = await getCurrentUser(request)
 
   if (error)
     return NextResponse.json({ status: error.message }, { status: 400 })
@@ -54,7 +54,7 @@ export const PUT = async (
   request: NextRequest,
   { params }: { params: { id: string } }, // ここでリクエストパラメータを受け取る
 ) => {
-  const { currentUser, error } = await getCurrentUser(request)
+  const { /*currentUser,*/ error } = await getCurrentUser(request)
 
   if (error)
     return NextResponse.json({ status: error.message }, { status: 400 })
@@ -109,7 +109,7 @@ export const DELETE = async (
   request: NextRequest,
   { params }: { params: { id: string } }, // ここでリクエストパラメータを受け取る
 ) => {
-  const { currentUser, error } = await getCurrentUser(request)
+  const { /*currentUser, */error } = await getCurrentUser(request)
 
   if (error)
     return NextResponse.json({ status: error.message }, { status: 400 })
