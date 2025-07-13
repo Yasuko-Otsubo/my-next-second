@@ -3,8 +3,8 @@
 import { API_BASE_URL } from "@/constants";
 import { useState } from "react";
 import { FormGroup } from "@/app/contact/_components/FormGroup";
-import { Label } from "./_components/Label";
-import { Input } from "@/app/contact/_components/Input";
+import { Label } from "@/app/contact/_components/Label";
+import { Input } from "@/app/contact/_components/input";
 import { ErrorMessage } from "@/app/contact/_components/ErrorMessage";
 import { Textarea } from "@/app/contact/_components/Textarea";
 
