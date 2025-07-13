@@ -20,7 +20,18 @@ export default function Page() {
           Authorization: token, // 👈 Header に token を付与。
         },
       })
-      const { posts } = await res.json()
+       if (!res.ok) {
+    console.error('Fetch failed:', res.status, res.statusText)
+    return
+  }
+    const text = await res.text()
+    if (!text) {
+        console.error('レスポンスが空です')
+        return
+      }
+    const { posts } = JSON.parse(text)
+
+
       setPosts([...posts])
       setIsLoading(false)
     }
@@ -32,12 +43,9 @@ export default function Page() {
     <div className="">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-xl font-bold">記事一覧</h1>
-        <Link href="/admin/posts/new">
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          新規作成
+          <Link href="/admin/posts/new">新規作成</Link>
         </button>
-                  </Link>
-
       </div>
 
       <div className="">

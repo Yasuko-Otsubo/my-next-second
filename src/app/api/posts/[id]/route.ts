@@ -1,3 +1,5 @@
+export const runtime = 'nodejs'
+
 import { NextRequest, NextResponse } from 'next/server'
 import { PrismaClient } from '@prisma/client'
 
@@ -31,11 +33,18 @@ export const GET = async (
         },
       },
     })
+        if (!post) {
+    return NextResponse.json({ status: 'NOT_FOUND' }, { status: 404 });
+}
+
 
     // レスポンスを返す
     return NextResponse.json({ status: 'OK', post: post }, { status: 200 })
-  } catch (error) {
-    if (error instanceof Error)
-      return NextResponse.json({ status: error.message }, { status: 400 })
-  }
+} catch (error) {
+  console.error("API /api/posts/[id] error:", error);
+  return NextResponse.json(
+    { status: 'ERROR', message: String(error) },
+    { status: 500 }
+  );
+}
 }

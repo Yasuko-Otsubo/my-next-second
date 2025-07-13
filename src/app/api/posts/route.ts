@@ -1,10 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server'
+import {/* NextRequest,*/ NextResponse } from 'next/server'
 import { PrismaClient } from '@prisma/client'
+export const runtime = 'nodejs'
 
 const prisma = new PrismaClient()
 
 // GETという命名にすることで、GETリクエストの時にこの関数が呼ばれる
-export const GET = async (request: NextRequest) => {
+export const GET = async (/*request: NextRequest*/) => {
   try {
     // Postの一覧をDBから取得
     const posts = await prisma.post.findMany({

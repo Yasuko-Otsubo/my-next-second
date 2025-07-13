@@ -28,6 +28,19 @@ export default function Page() {
       body: JSON.stringify({ title, content, thumbnailImageKey, categories }),
     })
 
+    if (!res.ok) {
+  console.error("投稿作成失敗:", res.status, res.statusText);
+  return;
+}
+  const text = await res.text()
+
+  if (!text) {
+    console.error('レスポンスが空です')
+    return
+  }
+
+
+
     // レスポンスから作成した記事のIDを取得します。
     const { id } = await res.json()
 
