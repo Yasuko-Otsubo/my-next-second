@@ -46,8 +46,13 @@ export const CategoriesSelect: React.FC<Props> = ({
           Authorization: token,
         },
       });
+      /*
       const { categories } = await res.json();
       setCategories(categories);
+      */
+     const json = await res.json();
+     const categories = json?.categories ?? [];
+     setCategories(categories);
     };
 
     fetcher();
