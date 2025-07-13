@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "tailwindcss";
+
 body {
   margin: 0;
 }
@@ -20,7 +22,3 @@ body {
   color: #fff;
   text-decoration: none;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
